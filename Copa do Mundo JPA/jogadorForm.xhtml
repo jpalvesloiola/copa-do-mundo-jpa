@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Copa do Mundo</title>
+</h:head>
+<h:body>
+	<h3>
+		<h:outputText value="Incluir" rendered="#{jogadorMB.jogador.id == 0}" />
+		<h:outputText value="Editar" rendered="#{jogadorMB.jogador.id != 0}" />
+		Jogador
+	</h3>
+	<h:messages layout="table" errorStyle="color: red" infoStyle="color: green" warnStyle="color: orange" fatalStyle="color: gray" showSummary="false" showDetail="true" />	
+	<h:form>
+		
+		<h:outputLabel value="Nome" for="nome"/><br/>
+		<h:inputText id="nome" label="nome" value="#{jogadorMB.jogador.nome}" required="true" /><p/>
+
+		<h:outputLabel value="Idade" for="idade"/><br/>
+		<h:inputText id="idade" label="idade" value="#{jogadorMB.jogador.idade}" required="true">
+			<f:validateLongRange minimum="16" maximum="90" />
+		</h:inputText><p/>
+		
+		<h:outputLabel value="Posição" for="posicao"/><br/>
+		<h:selectOneMenu id="posicao" label="posição" value="#{jogadorMB.jogador.posicao}" >
+			<f:selectItems value="#{jogadorMB.posicoes}" />
+		</h:selectOneMenu>
+		<p/>
+
+		<h:outputLabel value="Seleção" for="selecao"/><br/>
+		<h:selectOneMenu id="selecao" label="seleção" value="#{jogadorMB.jogador.selecao}" converter="selecaoConverter">
+			<f:selectItems value="#{jogadorMB.selecoes}" var="selecao" itemLabel="#{selecao.nome}" itemValue="#{selecao}" />
+		</h:selectOneMenu>
+		<p/>
+
+		<h:commandButton value="Salvar" action="#{jogadorMB.salvar}" /><p/>
+		<h:commandLink value="cancelar" action="#{jogadorMB.listar}" immediate="true" />
+	</h:form>
+</h:body>
+</html>

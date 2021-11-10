@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Copa do Mundo</title>
+</h:head>
+<h:body>
+	<h3>Seleções</h3>
+	<h:form>
+		<h:messages layout="table" errorStyle="color: red" infoStyle="color: green" warnStyle="color: orange" fatalStyle="color: gray" showSummary="false" showDetail="true" />	
+		<h:dataTable value="#{selecaoMB.selecoes}" var="selecao">
+			<h:column><h:outputText value="#{selecao.nome}" /></h:column>
+			<h:column><h:outputText value="#{selecao.qtdTitulos}" /></h:column>
+			<h:column>
+				<h:dataTable value="#{selecao.jogadores}" var="jogador">
+					<h:column><h:outputText value="#{jogador.nome}" /></h:column>
+				</h:dataTable>
+			</h:column>
+			<h:column>
+				<h:dataTable value="#{selecao.hoteis}" var="hotel">
+					<h:column><h:outputText value="#{hotel.nome}" /></h:column>
+				</h:dataTable>
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{selecaoMB.excluir(selecao)}">
+					<h:graphicImage value="img/delete.png" width="25" />
+				</h:commandLink>
+				<h:commandLink action="#{selecaoMB.selecionarAlteracao(selecao)}">
+					<h:graphicImage value="img/editar.png" width="25" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+		<p/>
+		<h:commandLink value="incluir" action="#{selecaoMB.incluir}" /><p/>
+		<h:commandLink value="voltar" action="index" />
+	</h:form>
+</h:body>
+</html>
+
+
+
+
+
+
+
+
+
+

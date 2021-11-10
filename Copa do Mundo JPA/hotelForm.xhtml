@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Copa do Mundo</title>
+</h:head>
+<h:body>
+	<h3>
+		<h:outputText value="Incluir" rendered="#{hotelMB.hotel.id == 0}" />
+		<h:outputText value="Editar" rendered="#{hotelMB.hotel.id != 0}" />
+		Hotel
+	</h3>
+	<h:messages layout="table" errorStyle="color: red" infoStyle="color: green" warnStyle="color: orange" fatalStyle="color: gray" showSummary="false" showDetail="true" />	
+	<h:form>
+
+		<h:outputLabel value="Nome" for="nome"/><br/>
+		<h:inputText id="nome" label="nome" value="#{hotelMB.hotel.nome}" required="true" /><p/>
+
+		<h:outputLabel value="Cidade" for="cidade"/><br/>
+		<h:inputText id="cidade" label="cidade" value="#{hotelMB.hotel.cidade}" required="true"/><p/>
+
+		<h:commandButton value="Salvar" action="#{hotelMB.salvar}" /><p/>
+		<h:commandLink value="cancelar" action="#{hotelMB.listar}" immediate="true" />
+	</h:form>
+</h:body>
+</html>

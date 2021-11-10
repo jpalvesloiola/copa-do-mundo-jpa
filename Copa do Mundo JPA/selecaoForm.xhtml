@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:p="http://primefaces.org/ui">  
+<h:head>
+	<title>Copa do Mundo</title>
+</h:head>
+<h:body>
+	<h3>
+		<h:outputText value="Incluir" rendered="#{selecaoMB.selecao.id == 0}" />
+		<h:outputText value="Editar" rendered="#{selecaoMB.selecao.id != 0}" />
+		Seleção
+	</h3>
+	<p:messages layout="table" errorStyle="color: red" infoStyle="color: green" warnStyle="color: orange" fatalStyle="color: gray" showSummary="false" showDetail="true" />	
+	<h:form>
+		<p:outputLabel value="Nome" for="nome"/><br/>
+		<p:inputText id="nome" label="nome" value="#{selecaoMB.selecao.nome}" required="true" /><p/>
+
+		<p:outputLabel value="Quantidade de títulos" for="titulos"/><br/>
+		<p:spinner id="titulos" label="títulos" value="#{selecaoMB.selecao.qtdTitulos}" min="0" max="10" /><p/>		
+
+		<p:outputLabel value="Hotéis" for="hoteis"/><br/>
+		<p:selectManyCheckbox id="hoteis"  layout="pageDirection" label="hotéis"  value="#{selecaoMB.selecao.hoteis}" converter="hotelConverter">
+			<f:selectItems value="#{selecaoMB.hoteis}" var="hotel" itemLabel="#{hotel.nome}" itemValue="#{hotel}" />
+		</p:selectManyCheckbox>		
+
+		<p:commandButton value="Salvar" action="#{selecaoMB.salvar}" ajax="false" /><p/>
+		<p:commandLink value="cancelar" action="#{selecaoMB.listar}" immediate="true" ajax="false" />
+	</h:form>
+</h:body>
+</html>
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Copa do Mundo</title>
+</h:head>
+<h:body>
+	<h3>Jogadores</h3>
+	<h:form>
+		<h:messages layout="table" errorStyle="color: red" infoStyle="color: green" warnStyle="color: orange" fatalStyle="color: gray" showSummary="false" showDetail="true" />
+		
+		<h:outputLabel value="Filtro - Nome" for="filtro" /><br/>
+		<h:inputText id="filtro" value="#{jogadorMB.filtroNomeJogador}" /><br/>
+		<h:commandButton value="Filtrar" action="#{jogadorMB.filtrar}" /><p/>
+			
+		<h:dataTable value="#{jogadorMB.jogadores}" var="jogador">
+			<h:column><h:outputText value="#{jogador.nome}" /></h:column>
+			<h:column><h:outputText value="#{jogador.idade}" /></h:column>
+			<h:column><h:outputText value="#{jogador.posicao}" /></h:column>
+			<h:column><h:outputText value="#{jogador.selecao.nome}" /></h:column>
+			<h:column>
+				<h:commandLink action="#{jogadorMB.excluir(jogador)}">
+					<h:graphicImage value="img/delete.png" width="25" />
+				</h:commandLink>
+				<h:commandLink action="#{jogadorMB.selecionarAlteracao(jogador)}">
+					<h:graphicImage value="img/editar.png" width="25" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+		<p/>
+		<h:commandLink value="incluir" action="#{jogadorMB.incluir}" /><p/>
+		<h:commandLink value="voltar" action="index" />
+	</h:form>
+</h:body>
+</html>
+
+
+
+
+
+
+
+
+
+
