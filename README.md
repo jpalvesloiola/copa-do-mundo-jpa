@@ -1,13 +1,13 @@
 # copa-do-mundo-jpa
 CRUD de jogadores, seleções e hotéis utilizando JSF e JPA
 
-João Pedro A. Loiola
 Experiência Projeto Copa do Mundo
-Tenho experiência em alguns projetos acadêmicos, com fins de aprendizado. Um
-deles que gostei de praticar foi o da Copa do Mundo, um sistema Web que gerencia hotel,
-seleção e jogador na copa do mundo. Ou seja, o objetivo do sistema era ter um controle de
+
+Tenho experiência em alguns projetos acadêmicos, com fins de aprendizado. 
+O sitema Copa do Mundo é um sistema Web que gerencia hotel,
+seleção e jogador na copa do mundo. Ou seja, o objetivo do sistema é ter um controle de
 todos os jogadores inscritos na copa do mundo através de sua seleção e hotel de
-hospedagem. O sistema deveria permitir um CRUD de jogador, hotel e seleção. O intuito
+hospedagem. O sistema permite um CRUD de jogador, hotel e seleção. O intuito
 principal era exercitar as possíveis formas ou relacionamentos 1 : 1, N : N ou 1 : N utilizando
 JPA, assim como o banco de dados.
 Para iniciar o projeto criou-se um banco ”copa” com tabelas selecao, jogador, hotel
