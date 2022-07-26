@@ -27,4 +27,3 @@ Isso me proporcionou maior conhecimento sobre o ciclo de vida das Servlets que s
 instanciadas pelo container Apache Tomcat. Além disso, pude utilizar um Managed Bean
 responsável por intermediar a comunicação dessas views com as demais camadas da
 aplicação e o Data Access Object (DAO).
-Confira este projeto no meu GitHub: https://github.com/jpalvesloiola/copa-do-mundo-jpa
